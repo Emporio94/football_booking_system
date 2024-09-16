@@ -1,13 +1,25 @@
+<!DOCTYPE html>
+
+{% load static %}
+
 <html>
 
 
     <head>
 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    </head>
+
+    <body>
+
         <h1>
             You Are Currently On the Player List Page
         </h1>
 
-        <h2> {{ boldmessage }} {{ current_time }}</h2>
+        <h2> {{ boldmessage }} {{ current_time }} hours left until list comes live</h2>
 
         <h3>
             Currently In progress
@@ -15,11 +27,12 @@
 
         
 
-        <a href="players/login">Login page</a>
-        <a href="players/signup">Signup page</a>
-        
-    </head>
-
+        <div id = "navigation_links">
+            <a href="players/login">Login page</a>
+            <a href="players/signup">Signup page</a>
+        </div>
+    
+    </body>
 
 
 </html>
