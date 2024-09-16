@@ -15,10 +15,10 @@ def list_page(request):
     return render(request, 'players/player_list.html', context_dict)
 
 def login(request):
-    return render(request, )
+    return render(request, 'players/login.html')
 
 def signup(request):
-    return HttpResponse("You are now in the sign in view")
+    return render(request, 'players/signup.html')
 
 
 
