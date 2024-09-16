@@ -2,37 +2,69 @@
 
 {% load static %}
 
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Player List</title>
+</head>
 
+<body>
 
-    <head>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="players/login">Login</a></li>
+                <li><a href="players/signup">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-
-    </head>
-
-    <body>
-
-        <h1>
-            You Are Currently On the Player List Page
-        </h1>
-
-        <h2> {{ boldmessage }} {{ current_time }} hours left until list comes live</h2>
-
-        <h3>
-            Currently In progress
-        </h3>
-
-        
-
-        <div id = "navigation_links">
-            <a href="players/login">Login page</a>
-            <a href="players/signup">Signup page</a>
+    <section id="main-content">
+        <div class="player_parent">
+            <div class="player_child">
+                <h1>You Are Currently On the Player List Page</h1>
+                <h2>{{ boldmessage }} {{ current_time }} hours left until list comes live</h2>
+                <h3>Currently In Progress</h3>
+            </div>
         </div>
-    
-    </body>
+    </section>
 
+    <footer>
+        <p>&copy; 2024 Powerleague. UP THE ARSENAL.</p>
+    </footer>
 
+    <!-- jQuery for Smooth Scrolling and Fading -->
+    <script>
+        $(document).ready(function() {
+            // Smooth scrolling for navigation links
+            $('a').on('click', function(event) {
+                if (this.hash !== '') {
+                    event.preventDefault();
+                    const hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+
+            // Fade-in effect for main content
+            $('#main-content').hide().fadeIn(2000);
+
+            // Hover effect for navigation links
+            $('nav a').hover(
+                function() {
+                    $(this).css('color', '#ffa500');
+                },
+                function() {
+                    $(this).css('color', '#ffffff');
+                }
+            );
+        });
+    </script>
+</body>
 </html>
