@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpRequest, Http404
 from datetime import datetime, timedelta
 
 
+
 # Create your views here.
 
 def hours_until_friday_10am():
